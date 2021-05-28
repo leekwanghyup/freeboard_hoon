@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	https://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/mess?characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Seoul"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/mess?characterEncoding=UTF-8&amp;
+			useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=Asia/Seoul"/>
 		<property name="username" value="root"/>
 		<property name="password" value="12345678"/>	
 	</bean>
@@ -20,5 +24,5 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="SqlSessionFactory" />
 	</bean>
-	
+	<mybatis:scan base-package="com.freehoon.web.board.mapper"/>
 </beans>
