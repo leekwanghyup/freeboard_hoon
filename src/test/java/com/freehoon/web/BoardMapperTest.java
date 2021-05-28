@@ -28,14 +28,12 @@ public class BoardMapperTest {
 	private BoardMapper mapper; 
 	
 	@Test
-	@Ignore
 	public void insertTest() {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setCate_cd("1");
-		boardVO.setTitle("두번째 게시물 입니다.");
-		boardVO.setContent("세번째 게시물입니다.");
-		boardVO.setTag("2");
-		boardVO.setReg_id("2");
+		boardVO.setTitle("2 번째 게시물 입니다.");
+		boardVO.setContent("2 번째 게시물입니다.");
+		boardVO.setTag("태그2");
+		boardVO.setReg_id("작성자2");
 		mapper.insertBoard(boardVO); 
 	}
 	 
@@ -90,7 +88,7 @@ public class BoardMapperTest {
 		}
 	}
 	
-	@Test  
+	@Test @Ignore  
 	public void tesDeleteBoard() throws Exception {
 		int result = mapper.deleteBoard(2);
 		log.info("\n Delete Board Result \n ");
