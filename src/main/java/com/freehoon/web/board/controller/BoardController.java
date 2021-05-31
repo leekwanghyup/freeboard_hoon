@@ -33,4 +33,10 @@ public class BoardController {
 		return "redirect:/board/getBoardList"; 
 	}
 	
+	@GetMapping("/getBoardContent")
+	public String getBoardContent(Model model, int bid) {
+		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+		return "/board/boardContent"; 
+	}
+	
 }

@@ -33,7 +33,11 @@
 					<c:forEach items="${boardList}" var="list">
 						<tr>
 							<td>${list.bid}</td>
-							<td>${list.title}</td>
+							<td>
+								<a href="#" onclick="fn_contentView(${list.bid});">
+									${list.title}
+								</a>
+							</td>
 							<td>${list.reg_id}</td>
 							<td>${list.view_cnt}</td>
 							<td>${list.reg_dt}</td>

@@ -9,4 +9,6 @@ public interface BoardService {
 	List<BoardVO>getBoardList(); 
 	
 	void insertBoard(BoardVO boardVO); 
+	
+	BoardVO getBoardContent(int bid); 
 }
