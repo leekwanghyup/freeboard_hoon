@@ -12,6 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.freehoon.web.board.mapper.BoardMapper;
 import com.freehoon.web.board.model.BoardVO;
+import com.freehoon.web.common.Pagination;
 
 import lombok.extern.log4j.Log4j;
 
@@ -41,7 +42,8 @@ public class BoardMapperTest {
 	@Test
 	@Ignore
 	public void testGetBoardList() throws Exception {
-		List<BoardVO> boardList = mapper.getBoardList();
+		Pagination pagination = new Pagination();
+		List<BoardVO> boardList = mapper.getBoardList(pagination);
 		log.info("\n Board List");
 		if(boardList.size() > 0) {
 			for(BoardVO list : boardList) {

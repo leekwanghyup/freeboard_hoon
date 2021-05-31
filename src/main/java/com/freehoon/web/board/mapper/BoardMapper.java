@@ -2,10 +2,11 @@ package com.freehoon.web.board.mapper;
 import java.util.List;
 
 import com.freehoon.web.board.model.BoardVO;
+import com.freehoon.web.common.Pagination;
 
 public interface BoardMapper {
 
-	List<BoardVO> getBoardList();
+	List<BoardVO> getBoardList(Pagination pagination);
 
 	BoardVO getBoardContent(Long bid);
 
@@ -16,5 +17,6 @@ public interface BoardMapper {
 	int deleteBoard(Long bid);
 
 	int updateViewCnt(Long bid);
-
+	
+    int getBoardListCnt(); 
 }

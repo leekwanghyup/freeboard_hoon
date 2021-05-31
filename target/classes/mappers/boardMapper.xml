@@ -9,6 +9,8 @@
 			BID, CATE_CD, TITLE, CONTENT, TAG, VIEW_CNT, REG_ID, REG_DT, EDIT_DT
 		FROM
 			TBL_BOARD
+		LIMIT #{startList}, #{listSize}
+
 	</select>
 	<select id="getBoardContent" resultType="com.freehoon.web.board.model.BoardVO"
 				 parameterType="com.freehoon.web.board.model.BoardVO">
@@ -46,6 +48,16 @@
 		WHERE
 			BID = #{bid}
 	</update>
+	
+	<select id="getBoardListCnt" resultType="int">
+		SELECT
+			count(*) as listCnt
+		FROM
+			TBL_BOARD
+	</select>
+
+
+
 </mapper>
 
 

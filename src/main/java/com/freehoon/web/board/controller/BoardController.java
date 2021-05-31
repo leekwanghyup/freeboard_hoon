@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.freehoon.web.board.model.BoardVO;
 import com.freehoon.web.board.service.BoardService;
+import com.freehoon.web.common.Pagination;
 
 import lombok.extern.log4j.Log4j;
 
@@ -24,8 +26,14 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/getBoardList")
-	public String getBoardList(Model model){
-		model.addAttribute("boardList", boardService.getBoardList()); 
+	public String getBoardList(Model model,
+			 @RequestParam(required = false, defaultValue = "1") int page,
+			 @RequestParam(required = false, defaultValue = "1") int range){
+		int listCnt = boardService.getBoardListCnt();
+		Pagination pagination = new Pagination();
+		pagination.pageInfo(page, range, listCnt);
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("boardList", boardService.getBoardList(pagination)); 
 		return "board/index";
 	}
 	

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.freehoon.web.board.mapper.BoardMapper;
 import com.freehoon.web.board.model.BoardVO;
+import com.freehoon.web.common.Pagination;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -16,8 +17,8 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper boardMapper;
 	
 	@Override
-	public List<BoardVO> getBoardList() {
-		return boardMapper.getBoardList();
+	public List<BoardVO> getBoardList(Pagination pagination) {
+		return boardMapper.getBoardList(pagination);
 	}
 
 	@Override
@@ -40,6 +41,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void deleteBoard(Long bid) {
 		boardMapper.deleteBoard(bid); 
+	}
+
+	@Override
+	public int getBoardListCnt() {
+		return boardMapper.getBoardListCnt();
 	}
 
 }
