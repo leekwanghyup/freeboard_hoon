@@ -11,4 +11,7 @@ public interface BoardService {
 	void insertBoard(BoardVO boardVO); 
 	
 	BoardVO getBoardContent(int bid); 
+	
+	public void updateBoard(BoardVO boardVO);
+	
 }

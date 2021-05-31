@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="include/header.jspf" %>
-	
+<script src="${contextPath}/resources/js/boardContent.js"></script>
+<script>
+	var bid = "${boardContent.bid}"; 
+</script>
 	<%-- 게시물 번호 : ${boardContent.bid}<br>
 	게시물 카테고리 : ${boardContent.cate_cd}<br>
 	게시물 제목 : ${boardContent.title}<br>

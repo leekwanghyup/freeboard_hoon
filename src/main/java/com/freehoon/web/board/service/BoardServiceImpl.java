@@ -30,4 +30,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getBoardContent(bid);
 	}
 
+	@Override
+	public void updateBoard(BoardVO boardVO) {
+		boardMapper.updateBoard(boardVO); 
+	}
+
 }
