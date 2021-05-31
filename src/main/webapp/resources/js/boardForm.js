@@ -3,8 +3,7 @@ $(function(){
         $("#form").submit();
     })
     
-    //입력 폼 셋팅
-    if( mode = 'edit'){
+    if( mode == 'edit'){
 		$("#reg_id").prop('readonly', true);
 	    $("input:hidden[name='bid']").val(bid);
 	    $("input:hidden[name='mode']").val(mode);
@@ -12,7 +11,7 @@ $(function(){
 	    $("#title").val(title);
 	    $("#content").val(content);
 	    $("#tag").val(tag);
-	}
+	}    
 }); 
 
 

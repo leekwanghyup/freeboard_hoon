@@ -7,14 +7,14 @@ public interface BoardMapper {
 
 	List<BoardVO> getBoardList();
 
-	BoardVO getBoardContent(int bid);
+	BoardVO getBoardContent(Long bid);
 
 	int insertBoard(BoardVO boardVO);
 	
 	int updateBoard(BoardVO boardVO);
 
-	int deleteBoard(int bid);
+	int deleteBoard(Long bid);
 
-	int updateViewCnt(int bid);
+	int updateViewCnt(Long bid);
 
 }

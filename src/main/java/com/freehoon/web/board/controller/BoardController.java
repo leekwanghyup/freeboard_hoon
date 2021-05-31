@@ -39,16 +39,22 @@ public class BoardController {
 	}
 	
 	@GetMapping("/getBoardContent")
-	public String getBoardContent(Model model, int bid) {
+	public String getBoardContent(Model model, Long bid) {
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
 		return "/board/boardContent"; 
 	}
 	
 	@GetMapping("/editForm")
-	public String editForm(int bid, String mode, Model model, @ModelAttribute("boardVO") BoardVO boardVO) {
+	public String editForm(Long bid, String mode, Model model, @ModelAttribute("boardVO") BoardVO boardVO) {
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
 		model.addAttribute("mode", mode);
 		return "board/boardForm";
+	}
+	
+	@PostMapping("/deleteBoard")
+	public String deleteBoard(Long bid, RedirectAttributes rttr) {
+		boardService.deleteBoard(bid);
+		return "redirect:/board/getBoardList"; 
 	}
 	
 }

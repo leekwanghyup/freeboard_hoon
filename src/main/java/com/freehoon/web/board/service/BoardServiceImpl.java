@@ -25,7 +25,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardVO getBoardContent(int bid) {
+	public BoardVO getBoardContent(Long bid) {
 		boardMapper.updateViewCnt(bid); 
 		return boardMapper.getBoardContent(bid);
 	}
@@ -33,6 +33,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void updateBoard(BoardVO boardVO) {
 		boardMapper.updateBoard(boardVO); 
+	}
+
+	@Override
+	public void deleteBoard(Long bid) {
+		boardMapper.deleteBoard(bid); 
 	}
 
 }

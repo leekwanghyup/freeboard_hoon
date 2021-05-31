@@ -10,8 +10,10 @@ public interface BoardService {
 	
 	void insertBoard(BoardVO boardVO); 
 	
-	BoardVO getBoardContent(int bid); 
+	BoardVO getBoardContent(Long bid); 
 	
-	public void updateBoard(BoardVO boardVO);
+	void updateBoard(BoardVO boardVO);
+	
+	void deleteBoard(Long bid); 
 	
 }

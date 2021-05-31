@@ -27,7 +27,7 @@
 	</div>
 	
 	<form:hidden path="bid" />
-	<input type="hidden" name="mode" />
+	<input type="hidden"  id="mode" name="mode" value="${param.mode}" />
 </form:form>
 
 <div>
@@ -35,11 +35,11 @@
 	<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
 </div>
 <script>
-	var mode = '${mode}'; 
+	var mode = $('#mode').val(); 
 	var bid = '${boardContent.bid}'; 
 	var reg_id = '${boardContent.reg_id}'; 
 	var title = '${boardContent.title}'; 
-	var content = '${boardContent.content}'; 
+	var content = `'${boardContent.content}'`; 
 	var tag = '${boardContent.tag}';
 	     
 </script>

@@ -55,7 +55,7 @@ public class BoardMapperTest {
 	@Test 
 	@Ignore
 	public void testGetBoardContent() throws Exception {
-		BoardVO boardVO = mapper.getBoardContent(1);
+		BoardVO boardVO = mapper.getBoardContent(1L);
 		log.info("\n Board Contents ");
 		if(boardVO != null) {
 			log.info("글번호 : " + boardVO.getBid() );
@@ -75,7 +75,7 @@ public class BoardMapperTest {
 	@Test @Ignore
 	public void testUpdateBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setBid(1);
+		boardVO.setBid(1L);
 		boardVO.setCate_cd("1");
 		boardVO.setTitle("첫번째 게시물 입니다-수정 합니다.");
 		boardVO.setContent("첫번째 게시물입니다-수정합니다.");
@@ -91,7 +91,7 @@ public class BoardMapperTest {
 	
 	@Test @Ignore  
 	public void tesDeleteBoard() throws Exception {
-		int result = mapper.deleteBoard(2);
+		int result = mapper.deleteBoard(2L);
 		log.info("\n Delete Board Result \n ");
 		if(result > 0) {
 			log.info("\n 게시물 삭제 성공 ");

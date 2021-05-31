@@ -35,7 +35,7 @@
 			BID = ${bid}
 	</update>
 
-	<delete id="deleteBoard" parameterType="int">
+	<delete id="deleteBoard">
 		DELETE FROM TBL_BOARD
 		WHERE BID = #{bid}
 	</delete>
