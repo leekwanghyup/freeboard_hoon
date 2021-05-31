@@ -30,8 +30,9 @@ public class BoardMapperTest {
 	@Test
 	public void insertTest() {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setTitle("2 번째 게시물 입니다.");
-		boardVO.setContent("2 번째 게시물입니다.");
+		boardVO.setCate_cd("1");
+		boardVO.setTitle("1 번째 게시물 입니다.");
+		boardVO.setContent("1 번째 게시물입니다.");
 		boardVO.setTag("태그2");
 		boardVO.setReg_id("작성자2");
 		mapper.insertBoard(boardVO); 

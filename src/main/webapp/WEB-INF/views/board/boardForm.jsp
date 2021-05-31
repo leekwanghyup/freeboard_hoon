@@ -7,7 +7,7 @@
 <h2>Board Form</h2>
 <form name="form" id="form" role="form" method="post" 
 	action="${contextPath}/board/saveBoard">
-
+	<input type="hidden" value="1" name="cate_cd">
 	<div class="mb-3">
 		<label for="title">제목</label>
 		<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
