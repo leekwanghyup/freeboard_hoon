@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.freehoon.web.board.mapper.BoardMapper;
 import com.freehoon.web.board.model.BoardVO;
@@ -24,6 +25,7 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.insertBoard(boardVO);
 	}
 
+	@Transactional
 	@Override
 	public BoardVO getBoardContent(Long bid) {
 		boardMapper.updateViewCnt(bid); 
