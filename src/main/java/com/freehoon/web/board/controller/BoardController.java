@@ -3,6 +3,7 @@ package com.freehoon.web.board.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.freehoon.web.board.model.BoardVO;
 import com.freehoon.web.board.service.BoardService;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -56,5 +60,16 @@ public class BoardController {
 		boardService.deleteBoard(bid);
 		return "redirect:/board/getBoardList"; 
 	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	public String exceptionHandler(Model model, Exception e){
+		log.info("exception : " + e.getMessage());
+		model.addAttribute("exception", e);
+		return "error/exception";
+	}
+
+
+
+	
 	
 }
