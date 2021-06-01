@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.freehoon.web.board.model.BoardVO;
+import com.freehoon.web.board.model.ReplyVO;
 import com.freehoon.web.board.service.BoardService;
 import com.freehoon.web.common.Pagination;
 import com.freehoon.web.common.Search;
@@ -56,7 +57,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/getBoardContent")
-	public String getBoardContent(Model model, Long bid) {
+	public String getBoardContent(Model model, Long bid, @ModelAttribute("replyVO") ReplyVO replyVO) {
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
 		return "/board/boardContent"; 
 	}

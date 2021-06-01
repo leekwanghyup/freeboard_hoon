@@ -28,13 +28,13 @@ public class ReplyMapperTest {
 	@Autowired
 	private ReplyMapper replyMapper;
 	
-	@Test 
+	@Test
 	@Ignore
 	public void insertTest() {
 		ReplyVO vo = new ReplyVO(); 
 		vo.setBid(1L);
-		vo.setContent("댓글 테스트02 입니다.");
-		vo.setReg_id("댓글테스터02");
+		vo.setContent("댓글 테스트03 입니다.");
+		vo.setReg_id("댓글테스터03");
 		int result = replyMapper.saveReply(vo);
 		if(result > 0 ) {
 			log.info("댓글 등록 성공!!");
