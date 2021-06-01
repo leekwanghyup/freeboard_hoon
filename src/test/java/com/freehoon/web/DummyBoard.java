@@ -28,11 +28,11 @@ public class DummyBoard {
 	public void dummyBoard() {
 		BoardVO boardVO = new BoardVO(); 
 		boardVO.setCate_cd("1");
-		boardVO.setTag("Tag");
-		boardVO.setReg_id("테스터");
-		for( int i = 1; i < 1234 ; i++) {
-		    boardVO.setTitle(i + " 번째 게시물 입니다.");
-		    boardVO.setContent(i + " 번째 게시물 입니다.");
+		boardVO.setTag("Spring");
+		boardVO.setReg_id("킹왕짱");
+		for( int i = 1; i < 321 ; i++) {
+		    boardVO.setTitle(i + " 번째 스프링 프레임워크.");
+		    boardVO.setContent(i + " 번째 스프링 프레임워크.");
 		    int result = boardMapper.insertBoard(boardVO);
 			log.info("\n Insert Board Result " +result);
 

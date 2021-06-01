@@ -13,6 +13,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.freehoon.web.board.mapper.BoardMapper;
 import com.freehoon.web.board.model.BoardVO;
 import com.freehoon.web.common.Pagination;
+import com.freehoon.web.common.Search;
 
 import lombok.extern.log4j.Log4j;
 
@@ -29,6 +30,7 @@ public class BoardMapperTest {
 	private BoardMapper mapper; 
 	
 	@Test
+	@Ignore
 	public void insertTest() {
 		BoardVO boardVO = new BoardVO();
 		boardVO.setCate_cd("1");
@@ -42,8 +44,8 @@ public class BoardMapperTest {
 	@Test
 	@Ignore
 	public void testGetBoardList() throws Exception {
-		Pagination pagination = new Pagination();
-		List<BoardVO> boardList = mapper.getBoardList(pagination);
+		Search search = new Search();
+		List<BoardVO> boardList = mapper.getBoardList(search);
 		log.info("\n Board List");
 		if(boardList.size() > 0) {
 			for(BoardVO list : boardList) {

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.freehoon.web.board.model.BoardVO;
 import com.freehoon.web.board.service.BoardService;
 import com.freehoon.web.common.Pagination;
+import com.freehoon.web.common.Search;
 
 import lombok.extern.log4j.Log4j;
 
@@ -28,12 +29,16 @@ public class BoardController {
 	@GetMapping("/getBoardList")
 	public String getBoardList(Model model,
 			 @RequestParam(required = false, defaultValue = "1") int page,
-			 @RequestParam(required = false, defaultValue = "1") int range){
-		int listCnt = boardService.getBoardListCnt();
-		Pagination pagination = new Pagination();
-		pagination.pageInfo(page, range, listCnt);
-		model.addAttribute("pagination", pagination);
-		model.addAttribute("boardList", boardService.getBoardList(pagination)); 
+			 @RequestParam(required = false, defaultValue = "1") int range,
+			 @RequestParam(required = false, defaultValue = "title") String searchType,
+			 @RequestParam(required = false) String keyword, 
+			 @ModelAttribute("search") Search search){
+		search.setSearchType(searchType); 
+		search.setKeyword(keyword); 
+		int listCnt = boardService.getBoardListCnt(search);
+		search.pageInfo(page, range, listCnt);
+		model.addAttribute("pagination", search);
+		model.addAttribute("boardList", boardService.getBoardList(search)); 
 		return "board/index";
 	}
 	
@@ -76,8 +81,4 @@ public class BoardController {
 		return "error/exception";
 	}
 
-
-
-	
-	
 }

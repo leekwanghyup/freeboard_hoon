@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>	
  <%@ include file="include/header.jspf" %>
-<script src="${contextPath}/resources/js/index.js"></script>
 
-<h2>Board List</h2>
+<h2>자유게시판</h2><br>
 <div class="table-reponsive">
 	<table class="table table-striped table-sm">
 		<colgroup>
@@ -48,30 +47,57 @@
 		</tbody>
 	</table> <!-- table end -->
 </div> <!-- table div end -->
-<div>
+<div class="btn_area">
 	<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">
 		글쓰기
 	</button>
-	<a href="${contextPath}">홈	</a>
+	<a href="${contextPath}/board/getBoardList" style="margin-left: 10px;"> 새로고침	</a>
 </div> <!-- button area end -->
 
 <!-- 페이지네이션 -->
 <div id="paginationBox">
     <ul class="pagination">
         <c:if test="${pagination.prev}">
-            <li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a></li>
+            <li class="page-item"><a class="page-link" id="prev" href="#" >Previous</a></li>
         </c:if>
 
         <c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
-            <li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+            <li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+            	<a class="page-link idx_btn" href="#" data-idx="${idx}" > ${idx} </a>
+            </li>
         </c:forEach>
-
         <c:if test="${pagination.next}">
-
-            <li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangeSize}')" >Next</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="next">Next</a></li>
         </c:if>
     </ul>
 </div> <!-- paginationBox -->
 
+<!-- search{s} -->
+<div class="form-group row justify-content-center">
+    <div class="w100" style="padding-right:10px">
+        <select class="form-control form-control-sm" name="searchType" id="searchType">
+            <option value="title">제목</option>
+            <option value="content">본문</option>
+            <option value="reg_id">작성자</option>
+        </select>
+    </div>
+    <div class="w300" style="padding-right:10px">
+        <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+    </div>
+    <div>
+        <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+    </div>
+</div><!-- search{e} -->
+
+<script>
+	var paginationParam = {
+		page : '${pagination.page}',
+		range : '${pagination.range}',
+		rangeSize : '${pagination.rangeSize}',
+		searchType : '${search.searchType}',
+		keyword : '${search.keyword}'
+	};  
+</script>
+<script src="${contextPath}/resources/js/index.js"></script>
 
 <%@ include file="include/footer.jspf" %>

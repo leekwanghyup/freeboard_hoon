@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.freehoon.web.board.model.BoardVO;
 import com.freehoon.web.common.Pagination;
+import com.freehoon.web.common.Search;
 
 public interface BoardService {
 
-	List<BoardVO>getBoardList(Pagination pagination); 
+	List<BoardVO>getBoardList(Search search); 
 	
 	void insertBoard(BoardVO boardVO); 
 	
@@ -17,5 +18,5 @@ public interface BoardService {
 	
 	void deleteBoard(Long bid); 
 	
-	int getBoardListCnt();
+	int getBoardListCnt(Search search);
 }

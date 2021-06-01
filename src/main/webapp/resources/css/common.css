@@ -11,7 +11,13 @@ body { padding-top : 70px; padding-bottom: 30px;}
 .board_tag {font-size : 11pt;margin : 10pt;padding-bottom : 10pt;}
 .buttons{ margin-top: 20px; }
 
-/* 페이지네이션*/
+/* 리스트 - 페이지네이션*/
 .pagination  {
     justify-content: center;
+}
+
+/* 리스트 - 버튼영역 */
+.btn_area{
+	margin-top: 20px; 
+	text-align: right; 	
 }
