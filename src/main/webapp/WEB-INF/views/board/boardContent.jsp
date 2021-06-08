@@ -35,10 +35,9 @@
 		</div>
 	</form>
 
-<!-- Reply Form {s} -->
+<!-- 댓글 작성 폼-->
 <div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
-    <form:form name="form" id="form" role="form" modelAttribute="replyVO" method="post">
-        <form:hidden path="bid"/>
+    <form:form name="form" id="replyform" role="form" modelAttribute="replyVO" method="put">
         <div class="row">
             <div class="col-sm-10">
                 <form:textarea path="content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요 ..."></form:textarea>
@@ -50,7 +49,7 @@
         </div>
     </form:form>
 </div>
-<!-- Reply Form {e} -->
+<!-- 댓글 작성폼  end -->
 
 <!-- Reply List {s}-->
 <div class="my-3 p-4 bg-white rounded shadow-sm">
