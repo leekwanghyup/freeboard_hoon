@@ -27,7 +27,18 @@ $(function(){
     $('.idx_btn').on('click', function(){
         var idx = $(this).data("idx"); 
         fn_pagination(idx, paginationParam);
-    }); 
+    });
+    
+    //TESt API
+    var url = contextPath+"/apiTest"; 
+    $.ajax({
+        type: 'post',
+        url: url,
+        dataType: 'json',
+        success: function(result) {
+            console.log(result);
+        }	   // Ajax success end
+    });	// Ajax end
 
 }); 
 
@@ -75,3 +86,5 @@ function generateUrl(page, range, searchType, keyword){
     }
     return url; 
 }
+
+    

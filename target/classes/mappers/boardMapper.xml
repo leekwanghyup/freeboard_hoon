@@ -20,6 +20,7 @@
 		        AND reg_id like CONCAT('%', #{keyword}, '%')
 		    </if>	
 		</trim>
+		ORDER BY REG_DT desc
 		LIMIT #{startList}, #{listSize}
 		
 	</select>

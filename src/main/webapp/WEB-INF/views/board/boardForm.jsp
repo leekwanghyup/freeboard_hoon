@@ -4,6 +4,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %> 
 
 <%@ include file="include/header.jspf" %>
+<script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
 
 <h2>Board Form</h2>
 <form:form name="form" id="form" role="form" modelAttribute="boardVO" method="post" 
@@ -44,5 +45,6 @@
 	     
 </script>
 <script src="${contextPath}/resources/js/boardForm.js"></script>
+<script src="${contextPath}/resources/js/ckeditor.js"></script>
 
 <%@ include file="include/footer.jspf" %>

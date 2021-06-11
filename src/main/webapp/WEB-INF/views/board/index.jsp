@@ -97,6 +97,7 @@
 		searchType : '${search.searchType}',
 		keyword : '${search.keyword}'
 	};  
+	
 </script>
 <script src="${contextPath}/resources/js/index.js"></script>
 
